@@ -1,0 +1,8 @@
+<div class="zippy">
+  <div class="zippy__title" (click)="toggle()">
+    {{ visible ? '&blacktriangledown;' : '&blacktriangleright;' }} {{title}}
+  </div>
+  <div class="zippy__content" [hidden]="!visible">
+    <content></content>
+  </div>
+</div>

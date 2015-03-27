@@ -1,18 +1,14 @@
 import {Component, Template} from 'angular2/angular2';
-import {If} from 'angular2/angular2';
+import {Zippy} from 'zippy';
 
 @Component({
-    selector: 'hello'  //TODO: default to camel-cased class name if not provided?
+    selector: 'hello'
 })
 @Template({
-    inline: `<span *if="name">Hello, {{name}}!</span>`,
-    directives: [If]
+    inline: `<zippy title="Details">
+              <p>This is some content.</p>
+            </zippy>`,
+    directives: [Zippy]
 })
 export class Hello {
-    constructor() {
-        this.name = 'World'; //TODO: how to declare a field with its default value (so I don't need a constructor)?
-        setTimeout(() => {
-          this.name = 'NEW World'
-        }, 2000);
-    }
 }
