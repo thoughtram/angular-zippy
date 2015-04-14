@@ -1,13 +1,13 @@
-import {Component, Template} from 'angular2/angular2';
+import {Component, View} from 'angular2/angular2';
 
 @Component({
   selector: 'zippy',
-  bind: {
+  properties: {
     'title': 'title'
   }
 })
-@Template({
-  url: 'zippy.html'
+@View({
+  templateUrl: 'zippy.html'
 })
 export class Zippy {
 
