@@ -13,8 +13,9 @@ var PATHS = {
       'node_modules/gulp-traceur/node_modules/traceur/bin/traceur-runtime.js',
       'node_modules/es6-module-loader/dist/es6-module-loader-sans-promises.src.js',
       'node_modules/systemjs/lib/extension-register.js',
-      'node_modules/angular2/node_modules/zone.js/zone.js',
-      'node_modules/angular2/node_modules/zone.js/long-stack-trace-zone.js'
+      'node_modules/reflect-metadata/Reflect.js',
+      'node_modules/angular2/node_modules/zone.js/dist/zone.js',
+      'node_modules/angular2/node_modules/zone.js/dist/long-stack-trace-zone.js'
     ]
 };
 
@@ -53,8 +54,14 @@ gulp.task('angular2', function () {
 
   var buildConfig = {
     paths: {
-      "angular2/*": "node_modules/angular2/es6/prod/*.es6",
-      "rx/*": "node_modules/angular2/node_modules/rx/*.js"
+      "angular2/*": "node_modules/angular2/es6/prod/*.js",
+      "rx": "node_modules/angular2/node_modules/rx/dist/rx.js"
+    },
+    meta: {
+      // auto-detection fails to detect properly
+      'rx': {
+        format: 'cjs' //https://github.com/systemjs/builder/issues/123
+      }
     }
   };
 
